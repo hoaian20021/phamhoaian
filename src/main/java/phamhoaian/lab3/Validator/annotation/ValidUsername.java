@@ -15,7 +15,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 @Constraint(validatedBy = ValidUsernameValidator.class)
 public @interface ValidUsername {
-    String massage() default "UserName already exists";
+    String message() default "UserName already exists";
     Class<?>[]groups()default {};
     Class<? extends Payload>[]payload()default {};
 }

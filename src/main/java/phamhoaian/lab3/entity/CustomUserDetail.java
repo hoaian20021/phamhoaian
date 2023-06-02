@@ -1,5 +1,6 @@
 package phamhoaian.lab3.entity;
 
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import phamhoaian.lab3.repository.IUserRepository;
@@ -7,19 +8,29 @@ import phamhoaian.lab3.repository.IUserRepository;
 import java.util.Collection;
 import java.util.Collections;
 
-public class CustomUserDetail implements UserDetails  {
-    private final User user ;
+public class CustomUserDetail implements UserDetails {
 
-    public CustomUserDetail(User user, IUserRepository userRepository){this.user=user;}
+    private final User user;
+
+   private final IUserRepository userRepository;
+
+
+    public CustomUserDetail (User user , IUserRepository userRepository)
+    {
+        this.user= user;
+
+        this.userRepository=userRepository;
+
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.emptyList();
+      return Collections.emptyList();
     }
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+       return user.getPassword();
     }
 
     @Override
